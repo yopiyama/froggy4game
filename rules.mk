@@ -16,6 +16,7 @@ LOCAL_GLCDFONT = yes        # use each keymaps "helixfont.h" insted of "common/g
 LED_BACK_ENABLE = yes       # LED backlight (Enable WS2812 RGB underlight.)
 LED_UNDERGLOW_ENABLE = no   # LED underglow (Enable WS2812 RGB underlight.)
 LED_ANIMATIONS = yes        # LED animations
+
 # IOS_DEVICE_ENABLE = no      # connect to IOS device (iPad,iPhone)
 
 # convert Helix-specific options (that represent combinations of standard options)
