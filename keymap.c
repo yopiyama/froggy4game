@@ -45,17 +45,12 @@ bool RGBAnimation = false; //Flag for LED Layer color Refresh.
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
-  EISU,
-  KANA,
   RGBRST,
   RGBOFF,
   RGB1,
   RGB2,
   RGB3,
   OPT_TAP_SP,
-  DESKTOP,
-  MAC,
-  WIN,
 };
 
 enum macro_keycodes {
@@ -68,51 +63,51 @@ enum macro_keycodes {
 #if MATRIX_ROWS == 10 // HELIX_ROWS == 5
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT( \
-    KC_ESC,        KC_SCLN,       KC_LPRN,       KC_LBRC,  KC_LT,    KC_LCBR,                                  _______,  _______,  _______,  _______,  _______,  _______, \
-    LCTL(KC_SPC),  KC_P,          KC_K,          KC_R,     KC_A,     KC_F,                                     _______,  _______,  _______,  _______,  _______,  _______, \
-    KC_BSPC,       KC_D,          KC_T,          KC_H,     KC_E,     KC_O,                                     _______,  _______,  _______,  _______,  _______,  _______, \
-    OSM(MOD_LSFT), KC_Y,          KC_S,          KC_N,     KC_I,     KC_U,       TG(_FPS), _______,  _______,  _______,  _______,  _______,  _______,  _______, \
-    OSM(MOD_LCTL), OSM(MOD_LALT), OSM(MOD_LGUI), MO(_SYM), MO(_NUM), OPT_TAP_SP, KC_ENT,   _______,  _______,  _______,  _______,  _______,  _______,  _______ \
+    KC_ESC,         KC_SCLN,        KC_LPRN,        KC_LBRC,   KC_LT,     KC_LCBR,                         _______,  _______,  _______,  _______,  _______,  _______, \
+    LCTL(KC_SPC),   KC_P,           KC_K,           KC_R,      KC_A,      KC_F,                            _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_BSPC,        KC_D,           KC_T,           KC_H,      KC_E,      KC_O,                            _______,  _______,  _______,  _______,  _______,  _______, \
+    OSM(MOD_LSFT),  KC_Y,           KC_S,           KC_N,      KC_I,      KC_U,        TG(_FPS), _______,  _______,  _______,  _______,  _______,  _______,  _______, \
+    OSM(MOD_LCTL),  OSM(MOD_LALT),  OSM(MOD_LGUI),  MO(_SYM),  MO(_NUM),  OPT_TAP_SP,  KC_ENT,   _______,  _______,  _______,  _______,  _______,  _______,  _______ \
   ),
 
   [_OPT] = LAYOUT( \
-    _______, KC_COLN, KC_RPRN, KC_RBRC, KC_GT,    KC_RCBR,                    _______,  _______,  _______,  _______,  _______,  _______, \
-    KC_TAB,  KC_J,    KC_M,    KC_B,    KC_QUOT,  KC_TAB,                     _______,  _______,  _______,  _______,  _______,  _______, \
-    KC_DOT,  KC_V,    KC_C,    KC_L,    KC_Z,     KC_Q,                       _______,  _______,  _______,  _______,  _______,  _______, \
-    _______, KC_X,    KC_G,    KC_W,    KC_MINUS, KC_DEL,  _______,  _______, _______,  _______,  _______,  _______,  _______,  _______, \
-    _______, _______, _______, KC_COMM, KC_SPC,   _______, _______,  _______, _______,  _______,  _______,  _______,  _______,  _______ \
+    _______,  KC_COLN,  KC_RPRN,  KC_RBRC,  KC_GT,     KC_RCBR,                      _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_TAB,   KC_J,     KC_M,     KC_B,     KC_QUOT,   KC_TAB,                       _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_DOT,   KC_V,     KC_C,     KC_L,     KC_Z,      KC_Q,                         _______,  _______,  _______,  _______,  _______,  _______, \
+    _______,  KC_X,     KC_G,     KC_W,     KC_MINUS,  KC_DEL,   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______, \
+    _______,  _______,  _______,  KC_COMM,  KC_SPC,    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______ \
   ),
 
   [_FUNC] = LAYOUT( \
-    RGBRST, RGB_HUI, _______, RESET,   MAC,     WIN,                         _______,  _______,  _______,  _______,  _______,  _______, \
-    RGB1,   RGB_VAI, KC_F7,   KC_F8,   KC_F9,   _______,                     _______,  _______,  _______,  _______,  _______,  _______, \
-    RGB2,   RGB_VAD, KC_F4,   KC_F5,   KC_F6,   KC_F12,                      _______,  _______,  _______,  _______,  _______,  _______, \
-    RGB3,   KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_F11,   _______,  _______, _______,  _______,  _______,  _______,  _______,  _______, \
-    RGBOFF, _______, _______, _______, _______, _______,  _______,  _______, _______,  _______,  _______,  _______,  _______,  _______ \
+    RGBRST,  RGB_HUI,  _______,  RESET,    _______,  _______,                      _______,  _______,  _______,  _______,  _______,  _______, \
+    RGB1,    RGB_VAI,  KC_F7,    KC_F8,    KC_F9,    _______,                      _______,  _______,  _______,  _______,  _______,  _______, \
+    RGB2,    RGB_VAD,  KC_F4,    KC_F5,    KC_F6,    KC_F12,                       _______,  _______,  _______,  _______,  _______,  _______, \
+    RGB3,    KC_F10,   KC_F1,    KC_F2,    KC_F3,    KC_F11,   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______, \
+    RGBOFF,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______ \
   ),
 
   [_SYM] = LAYOUT( \
-    _______, KC_GRV,  KC_TILD, KC_PGUP,  KC_PGDN, KC_CIRC,                   _______,  _______,  _______,  _______,  _______,  _______, \
-    KC_PSCR, KC_BSLS, KC_HASH, KC_EQL,   KC_QUES, KC_PERC,                   _______,  _______,  _______,  _______,  _______,  _______, \
-    _______, KC_DLR,  KC_UP,   KC_AT,    KC_EXLM, KC_PIPE,                   _______,  _______,  _______,  _______,  _______,  _______, \
-    KC_CAPS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_UNDS, KC_AMPR, _______, _______, _______,  _______,  _______,  _______,  _______,  _______, \
-    _______, _______, _______, _______,  _______, _______, _______, _______, _______,  _______,  _______,  _______,  _______,  _______ \
+    _______,  KC_GRV,   KC_TILD,  _______,   _______,  KC_CIRC,                      _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_PSCR,  KC_BSLS,  KC_HASH,  KC_EQL,    KC_QUES,  KC_PERC,                      _______,  _______,  _______,  _______,  _______,  _______, \
+    _______,  KC_DLR,   KC_UP,    KC_AT,     KC_EXLM,  KC_PIPE,                      _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_CAPS,  KC_LEFT,  KC_DOWN,  KC_RIGHT,  KC_UNDS,  KC_AMPR,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______, \
+    _______,  _______,  _______,  _______,   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______ \
   ),
 
   [_NUM] = LAYOUT( \
-    _______, _______, OSL(_FUNC), KC_HOME, KC_END,  _______,                       _______,  _______,  _______,  _______,  _______,  _______, \
-    _______, KC_ASTR, KC_7,   KC_8,    KC_9,    KC_MINS,                       _______,  _______,  _______,  _______,  _______,  _______, \
-    KC_DOT,  KC_SLSH, KC_4,   KC_5,    KC_6,    KC_PLUS,                       _______,  _______,  _______,  _______,  _______,  _______, \
-    KC_NLCK, KC_0,    KC_1,   KC_2,    KC_3,    C(S(KC_F1)), _______, _______, _______,  _______,  _______,  _______,  _______,  _______, \
-    _______, _______, KC_DOT, _______, _______, _______,     _______, _______, _______,  _______,  _______,  _______,  _______,  _______ \
+    _______,  _______,  OSL(_FUNC),  _______,  _______,  _______,                          _______,  _______,  _______,  _______,  _______,  _______, \
+    _______,  KC_ASTR,  KC_7,        KC_8,     KC_9,     KC_MINS,                          _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_DOT,   KC_SLSH,  KC_4,        KC_5,     KC_6,     KC_PLUS,                          _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_NLCK,  KC_0,     KC_1,        KC_2,     KC_3,     C(S(KC_F1)),  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______, \
+    _______,  _______,  _______,     _______,  _______,  _______,      _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______ \
   ),
 
   [_FPS] = LAYOUT( \
-    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4, KC_5,                   _______,  _______,  _______,  _______,  _______,  _______, \
-    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R, KC_T,                   _______,  _______,  _______,  _______,  _______,  _______, \
-    _______, KC_A,    KC_S,    KC_D,    KC_F, KC_G,                   _______,  _______,  _______,  _______,  _______,  _______, \
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V, KC_B, KC_TRNS, _______, _______,  _______,  _______,  _______,  _______,  _______, \
-    KC_LCTL, _______, KC_ENT,  KC_LALT, KC_J, KC_J, KC_M,    _______, _______,  _______,  _______,  _______,  _______,  _______ \
+    KC_ESC,   KC_1,    KC_2,     KC_3,     KC_4,  KC_5,                      _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_TAB,   KC_Q,    KC_W,     KC_E,     KC_R,  KC_T,                      _______,  _______,  _______,  _______,  _______,  _______, \
+    _______,  KC_A,    KC_S,     KC_D,     KC_F,  KC_G,                      _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_LSFT,  KC_Z,    KC_X,     KC_C,     KC_V,  KC_B,  KC_TRNS,  _______,  _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_LCTL,  KC_ENT,  _______,  KC_LALT,  KC_J,  KC_J,   KC_M,     _______,  _______,  _______,  _______,  _______,  _______,  _______ \
   )
 };
 
@@ -283,42 +278,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-   case EISU:
-      if (record->event.pressed) {
-        if(keymap_config.swap_lalt_lgui==false){
-          register_code(KC_LANG2);
-        }else{
-          SEND_STRING(SS_LALT("`"));
-        }
-      } else {
-        unregister_code(KC_LANG2);
-      }
-      return false;
-      break;
-    case KANA:
-      if (record->event.pressed) {
-        if(keymap_config.swap_lalt_lgui==false){
-          register_code(KC_LANG1);
-        }else{
-          SEND_STRING(SS_LALT("`"));
-        }
-      } else {
-        unregister_code(KC_LANG1);
-      }
-      return false;
-      break;
-    case DESKTOP:
-      if (record->event.pressed) {
-        if(keymap_config.swap_lalt_lgui==false){
-          register_code(KC_F11);
-        }else{
-          SEND_STRING(SS_LGUI("d"));
-        }
-      } else {
-        unregister_code(KC_F11);
-      }
-      return false;
-      break;
     case RGBRST:
       #ifdef RGBLIGHT_ENABLE
         if (record->event.pressed) {
@@ -363,24 +322,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
       #endif
       break;
-    case MAC:
-      if (record->event.pressed) {
-        keymap_config.swap_lalt_lgui = false;
-        keymap_config.swap_ralt_rgui = false;
-        #ifdef AUDIO_ENABLE
-          PLAY_SONG(ag_norm_song);
-        #endif
-      }
-      break;
-    case WIN:
-      if (record->event.pressed) {
-        keymap_config.swap_lalt_lgui = true;
-        keymap_config.swap_ralt_rgui = true;
-        #ifdef AUDIO_ENABLE
-          PLAY_SONG(ag_swap_song);
-        #endif
-      }
-      break;
     }
   return true;
 }
@@ -399,33 +340,6 @@ void matrix_init_user(void) {
         iota_gfx_init(!has_usb());   // turns on the display
     #endif
 }
-
-
-#ifdef AUDIO_ENABLE
-
-void startup_user()
-{
-    _delay_ms(20); // gets rid of tick
-}
-
-void shutdown_user()
-{
-    _delay_ms(150);
-    stop_all_notes();
-}
-
-void music_on_user(void)
-{
-    music_scale_user();
-}
-
-void music_scale_user(void)
-{
-    PLAY_SONG(music_scale);
-}
-
-#endif
-
 
 //assign the right code to your layers for OLED display
 #define L_BASE 0
