@@ -103,11 +103,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_FPS] = LAYOUT( \
-    KC_ESC,   KC_1,    KC_2,     KC_3,     KC_4,  KC_5,                      _______,  _______,  _______,  _______,  _______,  _______, \
-    KC_TAB,   KC_Q,    KC_W,     KC_E,     KC_R,  KC_T,                      _______,  _______,  _______,  _______,  _______,  _______, \
-    _______,  KC_A,    KC_S,     KC_D,     KC_F,  KC_G,                      _______,  _______,  _______,  _______,  _______,  _______, \
-    KC_LSFT,  KC_Z,    KC_X,     KC_C,     KC_V,  KC_B,  KC_TRNS,  _______,  _______,  _______,  _______,  _______,  _______,  _______, \
-    KC_LCTL,  KC_ENT,  _______,  KC_LALT,  KC_J,  KC_J,   KC_M,     _______,  _______,  _______,  _______,  _______,  _______,  _______ \
+    KC_ESC,   KC_1,    KC_2,     KC_3,     KC_4,    KC_5,                        _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_TAB,   KC_Q,    KC_W,     KC_E,     KC_R,    KC_T,                        _______,  _______,  _______,  _______,  _______,  _______, \
+    _______,  KC_A,    KC_S,     KC_D,     KC_F,    KC_G,                        _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_LSFT,  KC_Z,    KC_X,     KC_C,     KC_V,    KC_B,    KC_TRNS,  _______,  _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_LCTL,  KC_ENT,  _______,  KC_LALT,  KC_SPC,  KC_SPC,  KC_M,     _______,  _______,  _______,  _______,  _______,  _______,  _______ \
   )
 };
 
@@ -203,6 +203,7 @@ unsigned char keybuf_begin, keybuf_end;
 int col, row;
 #endif
 
+// Send input to computer.
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   #ifdef RGBLIGHT_ENABLE
@@ -249,8 +250,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_N:
     case KC_I:
     case KC_U:
-    case LCTL(KC_Z):
-    case KC_SPC:
+    case KC_ESC:
+    case LCTL(KC_SPC):
       if (record->event.pressed) {
         register_delay_code(_BASE);
         if(find_mairix(keycode, &delay_mat_row, &delay_mat_col)){
@@ -340,6 +341,8 @@ void matrix_init_user(void) {
         iota_gfx_init(!has_usb());   // turns on the display
     #endif
 }
+
+// ------------------------- LED Settings -------------------------
 
 //assign the right code to your layers for OLED display
 #define L_BASE 0
