@@ -63,11 +63,11 @@ enum macro_keycodes {
 #if MATRIX_ROWS == 10 // HELIX_ROWS == 5
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT( \
-    KC_ESC,         KC_SCLN,        KC_LPRN,        KC_LBRC,   KC_LT,     KC_LCBR,                         _______,  _______,  _______,  _______,  _______,  _______, \
-    LCTL(KC_SPC),   KC_P,           KC_K,           KC_R,      KC_A,      KC_F,                            _______,  _______,  _______,  _______,  _______,  _______, \
-    KC_BSPC,        KC_D,           KC_T,           KC_H,      KC_E,      KC_O,                            _______,  _______,  _______,  _______,  _______,  _______, \
-    OSM(MOD_LSFT),  KC_Y,           KC_S,           KC_N,      KC_I,      KC_U,        TG(_FPS), _______,  _______,  _______,  _______,  _______,  _______,  _______, \
-    OSM(MOD_LCTL),  OSM(MOD_LALT),  OSM(MOD_LGUI),  MO(_SYM),  MO(_NUM),  OPT_TAP_SP,  KC_ENT,   _______,  _______,  _______,  _______,  _______,  _______,  _______ \
+    KC_ESC,     KC_SCLN,  KC_LPRN,  KC_LBRC,   KC_LT,     KC_LCBR,                          _______,  _______,  _______,  _______,  _______,  _______, \
+    C(KC_SPC),  KC_P,     KC_K,     KC_R,      KC_A,      KC_F,                             _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_BSPC,    KC_D,     KC_T,     KC_H,      KC_E,      KC_O,                             _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_LSFT,    KC_Y,     KC_S,     KC_N,      KC_I,      KC_U,        TG(_FPS),  _______,  _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_LCTL,    KC_LALT,  KC_LGUI,  MO(_SYM),  MO(_NUM),  OPT_TAP_SP,  KC_ENT,    _______,  _______,  _______,  _______,  _______,  _______,  _______ \
   ),
 
   [_OPT] = LAYOUT( \
@@ -96,8 +96,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NUM] = LAYOUT( \
     _______,  _______,  OSL(_FUNC),  _______,  _______,  _______,                          _______,  _______,  _______,  _______,  _______,  _______, \
-    _______,  KC_ASTR,  KC_7,        KC_8,     KC_9,     KC_MINS,                          _______,  _______,  _______,  _______,  _______,  _______, \
-    KC_DOT,   KC_SLSH,  KC_4,        KC_5,     KC_6,     KC_PLUS,                          _______,  _______,  _______,  _______,  _______,  _______, \
+    _______,  KC_ASTR,  KC_7,        KC_8,     KC_9,     KC_PLUS,                          _______,  _______,  _______,  _______,  _______,  _______, \
+    KC_DOT,   KC_SLSH,  KC_4,        KC_5,     KC_6,     KC_MINS,                          _______,  _______,  _______,  _______,  _______,  _______, \
     KC_NLCK,  KC_0,     KC_1,        KC_2,     KC_3,     C(S(KC_F1)),  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______, \
     _______,  _______,  _______,     _______,  _______,  _______,      _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______ \
   ),
@@ -229,38 +229,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   switch (keycode) {
-    case KC_SCLN:
-    case KC_LBRC:
-    case KC_LPRN:
-    case KC_LT:
-    case KC_LCBR:
-    case KC_P:
-    case KC_K:
-    case KC_R:
-    case KC_A:
-    case KC_F:
-    case KC_BSPC:
-    case KC_D:
-    case KC_T:
-    case KC_H:
-    case KC_E:
-    case KC_O:
-    case KC_Y:
-    case KC_S:
-    case KC_N:
-    case KC_I:
-    case KC_U:
-    case KC_ESC:
-    case LCTL(KC_SPC):
+    case QWERTY:
       if (record->event.pressed) {
-        register_delay_code(_BASE);
-        if(find_mairix(keycode, &delay_mat_row, &delay_mat_col)){
-          key_timer = timer_read();
-          delay_key_stat = true;
-          delay_key_pressed = true;
-        }
-      }else{
-        delay_key_pressed = false;
+        persistent_default_layer_set(1UL<<_BASE);
       }
       return false;
       break;
